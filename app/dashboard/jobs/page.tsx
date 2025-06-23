@@ -753,7 +753,7 @@ export default function JobsPage() {
                                     <Button
                                       variant="outline"
                                       size="sm"
-                                      onClick={() => handleViewResume(application.resume, application.fileName || 'resume.pdf')}
+                                      onClick={() => handleViewResume(application.resume, (application as any).fileName || 'resume.pdf')}
                                     >
                                       <FileTextIcon className="h-4 w-4 mr-1" /> View Resume
                                     </Button>
