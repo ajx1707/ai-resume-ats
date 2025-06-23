@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Separator } from "@/components/ui/separator";
-import { Progress } from "@/components/ui/progress";
+// import { Progress } from "@/components/ui/progress";
 import { useToast } from "@/hooks/use-toast";
 import ReactMarkdown from 'react-markdown';
 import {
@@ -556,7 +556,12 @@ export default function ResumeAnalyzerPage() {
                       <span className="font-medium">Resume Score</span>
                       <span className="font-medium">{score}%</span>
                     </div>
-                    <Progress value={score || 0} className="h-2" />
+                    <div className="w-full bg-gray-200 rounded-full h-2">
+                      <div
+                        className="bg-blue-600 h-2 rounded-full transition-all duration-300"
+                        style={{ width: `${score || 0}%` }}
+                      ></div>
+                    </div>
                   </div>
                 )}
 
