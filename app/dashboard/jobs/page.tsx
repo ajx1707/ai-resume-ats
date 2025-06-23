@@ -211,7 +211,7 @@ export default function JobsPage() {
       }
 
       const userType = localStorage.getItem("userType") || "applicant";
-      const response = await fetch(`http://localhost:5000/api/jobs?user_type=${userType}`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'}/api/jobs?user_type=${userType}`, {
         headers: {
           "Authorization": `Bearer ${token}`
         }
@@ -253,7 +253,7 @@ export default function JobsPage() {
         throw new Error("Please add at least one required skill");
       }
 
-      const response = await fetch("http://localhost:5000/api/jobs", {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'}/api/jobs`, {
         method: "POST",
         headers: {
           "Authorization": `Bearer ${token}`,
@@ -349,7 +349,7 @@ export default function JobsPage() {
       const resumeData = await fileDataPromise;
 
       // Send application with resume data
-      const response = await fetch(`http://localhost:5000/api/jobs/${jobId}/apply`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'}/api/jobs/${jobId}/apply`, {
         method: "POST",
         headers: {
           "Authorization": `Bearer ${token}`,
@@ -394,7 +394,7 @@ export default function JobsPage() {
         throw new Error("Authentication required");
       }
 
-      const response = await fetch(`http://localhost:5000/api/applications/${applicationId}/status`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'}/api/applications/${applicationId}/status`, {
         method: "PUT",
         headers: {
           "Authorization": `Bearer ${token}`,
