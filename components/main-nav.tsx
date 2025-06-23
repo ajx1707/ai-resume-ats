@@ -80,7 +80,7 @@ export function MainNav() {
         const token = localStorage.getItem("token");
         if (!token) return;
 
-        const response = await fetch("http://localhost:5000/api/notifications/unread-count", {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'}/api/notifications/unread-count`, {
           headers: {
             "Authorization": `Bearer ${token}`
           }
